@@ -36,7 +36,12 @@ func recordTweets(hashtags string, minFollowers int, maxFollowers int) {
 	tweetStream := getTweetStream(hashtags) // get a stream of tweets
 
 	for tweetInterface := range tweetStream {
-		tweet := tweetInterface.(*twitter.Tweet)
+
+		tweet, ok := tweetInterface.(*twitter.Tweet)
+		if !ok {
+			continue
+		}
+
 		followers := tweet.User.FollowersCount
 
 		if followers >= minFollowers && followers <= maxFollowers {

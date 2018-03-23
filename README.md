@@ -14,32 +14,42 @@ Build a bot that extracts the following from people’s Twitter bio (on public/o
 * Number of followers
 
 Target accounts using either of these criteria:
+
 * Based on hashtags used
 * Based on number of followers; Between 1,000 - 50,000
 
 The bot is suppose to maintain a session and continously listen to the predefined hashtag
 
-## How to complete the task
+## Development Language
 
-1. Fork this repository into your own public repo.
+Go 1.10
 
-2. Complete the project and commit your work. Make a screencast of how it works with the googlespread sheet and progam side-by-side. Please watch this sample video to see what your screencast should look like https://youtu.be/mwBqUUtBtlE
+## Application setup
 
-3. Send the URL of your own repository and the screencast to @kolawole.balogun on the Slack here bit.ly/dcs-slack.
+1. Clone the repository
+2. Create `config.json` from `config.json.example`
+3. Setup your Twitter app as directed in the section below. Fill in the consumer key, consumer secret, access token and access token secret in your `config.json`
+4. Setup your Google Service account, download the file called client_secret.json and place it at the root of the project and fill in the correct filename in the `config.json`.
+5. Open the Google spreadsheet and share it with the service account id.
+5. Install `dep`, the package manager for Go. See how [here](https://golang.github.io/dep/docs/installation.html).
+6. Run `dep ensure` to install packages.
+7. Run `go install` to build and install the application.
+8. Run `backend-test-I`.
 
-## Show your working
+## Twitter App Setup
 
-If you choose to use build tools to compile your CSS and Javascript (such as SASS of Coffescript) please include the original files as well. You may update this README file outlining the details of what tools you have used.
+1. Create a Twitter account in case you don't have one. https://twitter.com/signup
+2. Go to apps.twitter.com and click on 'Create New App ' button.
+3. Fill out the details of the form correctly.
+4. Then click on the ‘Create your Twitter application’ button.
+5. Copy the consumer key, consumer secret, access token and access token secret to the `config.json`.
 
-## Clean code
-
-This fictitious project is part of a larger plan to reuse templates for multiple properties. When authoring your CSS ensure that it is easy for another developer to find and change things such as fonts and colours.
-
-
-## Good luck!
-
-We look forward to seeing what you can do. Remember, although it is a test, there are no specific right or wrong answers that we are looking for - just do the job as best you can. Any questions - create an issue in the panel on the right (requires a Github account).
-
+## Google App Setup
+1. Create a service account for your Google project by visiting [this page](https://console.developers.google.com/projectselector/iam-admin/serviceaccounts).
+2. Select a project or create a new project.
+3. Click on "Create service account". Set any name you choose, set role as project->owner, and tick "furnish a new private key". When it is created, a file will be downloaded. Move it to the root of the project and set the correct filename in the `config.json`.
+4. Open the chosen Google spreadsheet and share it with the Service Account ID (it looks like an email address).
 
 ## Demo
-![screen shot](https://user-images.githubusercontent.com/8668661/33088863-330b4250-ceef-11e7-9e9c-b4fd9ca299d8.gif)
+
+![screen shot](https://stephenafamo.com/blog/wp-content/uploads/2018/03/twitter-bot-demo.gif)
