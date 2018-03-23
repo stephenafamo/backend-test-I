@@ -2,5 +2,10 @@
 	"TwitterApiKey" : "",
 	"TwitterApiSecret" : "",
 	"TwitterAccessToken" : "",
-	"TwitterAccessTokenSecret" : ""
+	"TwitterAccessTokenSecret" : "",
+	"GoogleApiCredentialsFile" : "client_secret.json",
+	"SpreadsheetId" : "",
+	"SheetIndex" : 0,
+	"defaultMinFollowers" : 1000,
+	"defaultMaxFollowers" : 50000
 }

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/spf13/viper"
 )
 
@@ -11,8 +10,9 @@ func setupConfig() {
 }
 
 func setDefaults() {
-	viper.SetDefault("ContentDir", "content")
-	viper.SetDefault("LayoutDir", "layouts")
+	viper.SetDefault("SheetIndex", 0)
+	viper.SetDefault("defaultMinFollowers", 1000)
+	viper.SetDefault("defaultMaxFollowers", 50000)
 }
 
 func loadConfig() {
@@ -20,7 +20,5 @@ func loadConfig() {
 	viper.SetConfigType("json")   // type of config file
 	viper.AddConfigPath(".")      // look for config in the working directory
 	err := viper.ReadInConfig()   // Find and read the config file
-	if err != nil {               // Handle errors reading the config file
-		panic(fmt.Errorf("Fatal error config file: %s \n", err))
-	}
+	checkError(err)               // Handle errors reading the config file
 }
